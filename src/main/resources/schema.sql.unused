@@ -1,0 +1,9 @@
+CREATE TABLE "project" ( 
+	"id" SERIAL NOT NULL UNIQUE, 
+	"name" CHARACTER VARYING( 2044 ) NOT NULL,
+ 	PRIMARY KEY ( "id" ));
+ 
+CREATE TABLE "user" ( 
+	"id" SERIAL NOT NULL UNIQUE, 
+	"username" CHARACTER VARYING( 2044 ) NOT NULL,
+ 	PRIMARY KEY ( "id" ));
