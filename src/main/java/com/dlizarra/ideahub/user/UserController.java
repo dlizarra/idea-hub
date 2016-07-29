@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.dlizarra.ideahub.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dlizarra.ideahub.role.RoleName;
 
 @RestController
+@RequestMapping(AppConfig.REST_BASE_URL)
 public class UserController {
 	@Autowired
 	private UserService userService;

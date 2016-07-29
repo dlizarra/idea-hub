@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.dlizarra.ideahub.AppConfig;
 import com.dlizarra.ideahub.support.logging.AspectLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController()
+@RequestMapping(AppConfig.REST_BASE_URL)
 public class ProjectController {
 
 	@Autowired
