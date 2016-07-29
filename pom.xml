@@ -140,7 +140,7 @@
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>${coveralls-plugin.version}</version>
                 <configuration>
-                    <repoToken>bSBVR7jrIw2UW1zujfX3kLDZiTvF9i9Dj</repoToken>
+                    <repoToken>iMqeVVcKMDRJETsQjQWbfi8dkRyR7bm1v</repoToken>
                 </configuration>
             </plugin>
             <plugin>
