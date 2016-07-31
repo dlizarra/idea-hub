@@ -1,4 +1,4 @@
-CREATE TABLE "project" ( 
+CREATE TABLE "idea" (
 	"id" SERIAL NOT NULL UNIQUE, 
 	"name" CHARACTER VARYING( 2044 ) NOT NULL,
  	PRIMARY KEY ( "id" ));

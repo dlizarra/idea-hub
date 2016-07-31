@@ -1,5 +1,5 @@
 delete from "role";
-delete from "project2users";
-delete from "project";
+delete from "idea2users";
+delete from "idea";
 delete from "users";
 

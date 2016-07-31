@@ -20,7 +20,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import com.dlizarra.ideahub.support.security.CustomUserDetails;
-import com.dlizarra.ideahub.project.Project;
+import com.dlizarra.ideahub.idea.Idea;
 import com.dlizarra.ideahub.role.Role;
 
 import lombok.EqualsAndHashCode;
@@ -56,7 +56,7 @@ public class User {
 	private Set<Role> roles = new HashSet<Role>();
 
 	@ManyToMany(mappedBy = "members", fetch = FetchType.EAGER)
-	private Set<Project> projects = new HashSet<Project>();
+	private Set<Idea> ideas = new HashSet<Idea>();
 
 	public User() {
 	}
@@ -86,7 +86,7 @@ public class User {
 
 	@PreRemove
 	private void preRemove() {
-		for (final Project p : projects) {
+		for (final Idea p : ideas) {
 			p.getMembers().remove(this);
 		}
 	}

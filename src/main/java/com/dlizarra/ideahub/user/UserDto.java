@@ -7,7 +7,7 @@ import java.util.Set;
 
 import javax.validation.constraints.Size;
 
-import com.dlizarra.ideahub.project.ProjectDto;
+import com.dlizarra.ideahub.idea.IdeaDto;
 import com.dlizarra.ideahub.role.Role;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,6 +36,6 @@ public class UserDto {
 	private LocalDateTime modificationTime;
 	@JsonIgnore
 	private Set<Role> roles;
-	private List<ProjectDto> projects = new ArrayList<ProjectDto>();
+	private List<IdeaDto> projects = new ArrayList<IdeaDto>();
 
 }

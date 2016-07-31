@@ -1,4 +1,4 @@
-package com.dlizarra.ideahub.project;
+package com.dlizarra.ideahub.idea;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,47 +16,47 @@ import com.dlizarra.ideahub.user.UserNotFoundException;
 import com.dlizarra.ideahub.user.UserRepository;
 
 @Service
-public class ProjectServiceImpl implements ProjectService {
+public class IdeaServiceImpl implements IdeaService {
 
 	@Autowired
 	private OrikaBeanMapper mapper;
 	@Autowired
-	private ProjectRepository projectRepository;
+	private IdeaRepository ideaRepository;
 	@Autowired
 	private UserRepository userRepository;
 
 	@Transactional
 	@Override
-	public ProjectDto createProject(final ProjectDto dto, final Integer creatorId) {
-		final Project project = mapper.map(dto, Project.class);
+	public IdeaDto createProject(final IdeaDto dto, final Integer creatorId) {
+		final Idea idea = mapper.map(dto, Idea.class);
 		final User creator = userRepository.findOne(creatorId)
 				.orElseThrow(() -> new UserNotFoundException(creatorId));
 
-		// we keep in sync both sides of the relationship project-user
-		creator.getProjects().add(project);
-		project.getMembers().add(creator);
-		project.setCreator(creator);
-		final Project saved = projectRepository.save(project);
+		// we keep in sync both sides of the relationship idea-user
+		creator.getIdeas().add(idea);
+		idea.getMembers().add(creator);
+		idea.setCreator(creator);
+		final Idea saved = ideaRepository.save(idea);
 
-		return mapper.map(saved, ProjectDto.class);
+		return mapper.map(saved, IdeaDto.class);
 	}
 
 	@Transactional
 	@Override
 	public void addMember(final Integer projectId, final Integer memberId) {
-		final Project project = find(projectId);
+		final Idea idea = find(projectId);
 		final User user = userRepository.findOne(memberId)
 				.orElseThrow(() -> new UserNotFoundException(memberId));
 
-		// we keep in sync both sides of the relationship project-user
-		user.getProjects().add(project);
+		// we keep in sync both sides of the relationship idea-user
+		user.getIdeas().add(idea);
 		mapper.map(user, UserDto.class);
-		project.getMembers().add(user);
+		idea.getMembers().add(user);
 	}
 
 	@Transactional
 	@Override
-	public void updateProject(final ProjectDto project) {
+	public void updateProject(final IdeaDto project) {
 		// TODO Auto-generated method stub
 
 	}
@@ -64,28 +64,28 @@ public class ProjectServiceImpl implements ProjectService {
 	@Transactional
 	@Override
 	public void deleteProject(final Integer id) {
-		projectRepository.delete(id);
+		ideaRepository.delete(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public List<ProjectDto> getProjects() {
-		final List<ProjectDto> projectsDto = new ArrayList<ProjectDto>();
-		final List<Project> projects = projectRepository.findAll(new Sort("id"));
-		projects.forEach(x -> projectsDto.add(mapper.map(x, ProjectDto.class)));
+	public List<IdeaDto> getProjects() {
+		final List<IdeaDto> projectsDto = new ArrayList<IdeaDto>();
+		final List<Idea> ideas = ideaRepository.findAll(new Sort("id"));
+		ideas.forEach(x -> projectsDto.add(mapper.map(x, IdeaDto.class)));
 
 		return projectsDto;
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public ProjectDto getProject(final Integer id) {
-		return mapper.map(find(id), ProjectDto.class);
+	public IdeaDto getProject(final Integer id) {
+		return mapper.map(find(id), IdeaDto.class);
 	}
 
 	@Transactional(readOnly = true)
-	private Project find(final Integer id) {
-		final Optional<Project> projectOpt = projectRepository.findOne(id);
-		return projectOpt.orElseThrow(() -> new ProjectNotFoundException(id));
+	private Idea find(final Integer id) {
+		final Optional<Idea> projectOpt = ideaRepository.findOne(id);
+		return projectOpt.orElseThrow(() -> new IdeaNotFoundException(id));
 	}
 }

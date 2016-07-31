@@ -1,4 +1,4 @@
-package com.dlizarra.ideahub.project;
+package com.dlizarra.ideahub.idea;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -34,7 +34,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-public class Project {
+public class Idea {
 
 	static final int MAX_LENGTH_NAME = 100;
 	static final int MAX_LENGTH_DESCRIPTION = 1000;
@@ -55,8 +55,8 @@ public class Project {
 
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "project2users",
-				joinColumns = {	@JoinColumn(name = "project_id", referencedColumnName = "id") }, inverseJoinColumns = {
+	@JoinTable(name = "idea2users",
+				joinColumns = {	@JoinColumn(name = "idea_id", referencedColumnName = "id") }, inverseJoinColumns = {
 								@JoinColumn(name = "user_id", referencedColumnName = "id") })
 	private Set<User> members = new HashSet<User>();
 

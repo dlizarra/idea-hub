@@ -1,4 +1,4 @@
-package com.dlizarra.ideahub.project;
+package com.dlizarra.ideahub.idea;
 
 import java.util.List;
 
@@ -19,38 +19,38 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
 @RequestMapping(AppConfig.REST_BASE_URL)
-public class ProjectController {
+public class IdeaController {
 
 	@Autowired
-	private ProjectService projectService;
+	private IdeaService ideaService;
 
 	private static final Logger log = LoggerFactory.getLogger(AspectLogger.class);
 
 
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
-	public List<ProjectDto> findAll() {
-		return projectService.getProjects();
+	public List<IdeaDto> findAll() {
+		return ideaService.getProjects();
 	}
 
 	@RequestMapping(value = "/projects/{id}", method = RequestMethod.GET)
-	public ProjectDto find(@PathVariable("id") int id) {
-		return projectService.getProject(id);
+	public IdeaDto find(@PathVariable("id") int id) {
+		return ideaService.getProject(id);
 	}
 
 	@RequestMapping(value = "/projects", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void create(@Valid @RequestBody final ProjectDto project) {
-		projectService.createProject(project, 1);
+	public void create(@Valid @RequestBody final IdeaDto project) {
+		ideaService.createProject(project, 1);
 	}
 
 	@RequestMapping(value = "/addMember", method = RequestMethod.PUT)
-	public void addMember(@Valid @RequestBody final ProjectDto project) {
-		projectService.addMember(project.getId(), 1);
+	public void addMember(@Valid @RequestBody final IdeaDto project) {
+		ideaService.addMember(project.getId(), 1);
 	}
 
 	@RequestMapping(value = "/projects/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable final Integer id, @Valid @RequestBody final ProjectDto project) {
-		projectService.updateProject(project);
+	public void update(@PathVariable final Integer id, @Valid @RequestBody final IdeaDto project) {
+		ideaService.updateProject(project);
 	}
 
 }

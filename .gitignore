@@ -8,12 +8,12 @@ target
 build/
 .gradle
 
-# Eclipse Project Files #
+# Eclipse Idea Files #
 .classpath
-.project
+.idea
 .settings
 
-# STS Project Files #
+# STS Idea Files #
 .springBeans
 
 # IntelliJ IDEA Files #
@@ -22,7 +22,7 @@ build/
 *.iws
 *.idea
 
-# NetBeans Project Files #
+# NetBeans Idea Files #
 nbactions.xml
 nb-configuration.xml
 

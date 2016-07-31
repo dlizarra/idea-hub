@@ -1,4 +1,4 @@
-package com.dlizarra.ideahub.project;
+package com.dlizarra.ideahub.idea;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Matchers.*;
@@ -23,10 +23,10 @@ import com.dlizarra.ideahub.support.orika.OrikaBeanMapper;
 import com.dlizarra.ideahub.user.UserRepository;
 
 @Transactional
-public class ProjectServiceTest extends AbstractUnitTest {
+public class IdeaServiceTest extends AbstractUnitTest {
 
 	@Mock
-	private ProjectRepository projectRepository;
+	private IdeaRepository ideaRepository;
 	@Mock
 	private UserRepository userRepository;
 
@@ -35,38 +35,38 @@ public class ProjectServiceTest extends AbstractUnitTest {
 	private OrikaBeanMapper mapper;
 
 	@InjectMocks
-	private ProjectServiceImpl projectService;
+	private IdeaServiceImpl projectService;
 
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 
-		final Project p1 = new Project();
+		final Idea p1 = new Idea();
 		p1.setId(1);
 		p1.setName("Project1");
 		p1.setDescription("Description for Project1");
-		final Project p2 = new Project();
+		final Idea p2 = new Idea();
 		p2.setId(2);
 		p2.setName("Project2");
 		p2.setDescription("Description for Project2");
-		final List<Project> projects = new ArrayList<>();
-		projects.add(p1);
-		projects.add(p2);
+		final List<Idea> ideas = new ArrayList<>();
+		ideas.add(p1);
+		ideas.add(p2);
 		User user1 = new User();
 		user1.setId(1);
 
-		when(projectRepository.findAll(any(Sort.class))).thenReturn(projects);
-		when(projectRepository.findOne(1)).thenReturn(Optional.of(p1));
-		when(projectRepository.findOne(5)).thenReturn(Optional.empty());
-		when(projectRepository.findOne(199)).thenReturn(Optional.of(p1));
-		when(projectRepository.save(any(Project.class))).thenReturn(p1);
+		when(ideaRepository.findAll(any(Sort.class))).thenReturn(ideas);
+		when(ideaRepository.findOne(1)).thenReturn(Optional.of(p1));
+		when(ideaRepository.findOne(5)).thenReturn(Optional.empty());
+		when(ideaRepository.findOne(199)).thenReturn(Optional.of(p1));
+		when(ideaRepository.save(any(Idea.class))).thenReturn(p1);
 		when(userRepository.findOne(1)).thenReturn(Optional.of(user1));
 	}
 
 	@Test
 	public void testGetProjects_TwoProjectsInDb_ShouldReturnTwoProjects() {
 		// act
-		final List<ProjectDto> projects = projectService.getProjects();
+		final List<IdeaDto> projects = projectService.getProjects();
 		// assert
 		assertThat(projects.size()).isEqualTo(2);
 
@@ -75,12 +75,12 @@ public class ProjectServiceTest extends AbstractUnitTest {
 	@Test
 	public void testGetProject_ExistingIdGiven_ShouldReturnProject() {
 		// act
-		final ProjectDto p = projectService.getProject(1);
+		final IdeaDto p = projectService.getProject(1);
 		// assert
 		assertThat(p.getName()).isEqualTo("Project1");
 	}
 
-	@Test(expected = ProjectNotFoundException.class)
+	@Test(expected = IdeaNotFoundException.class)
 	public void testGetProject_NonExistingIdGiven_ShouldThrowProjectNotFoundException() {
 		projectService.getProject(5);
 	}
@@ -88,11 +88,11 @@ public class ProjectServiceTest extends AbstractUnitTest {
 	@Test
 	public void testCreateProject_ProjectGiven_ShouldSaveProject() {
 		// arrange
-		final ProjectDto savedDto = new ProjectDto();
+		final IdeaDto savedDto = new IdeaDto();
 		savedDto.setName("Project1");
 		savedDto.setDescription("Description for Project1");
 		// act
-		final ProjectDto dto = projectService.createProject(savedDto, 1);
+		final IdeaDto dto = projectService.createProject(savedDto, 1);
 		// assert
 		assertThat(dto.getId()).isEqualTo(1);
 	}
@@ -102,7 +102,7 @@ public class ProjectServiceTest extends AbstractUnitTest {
 	 	// act
 	 	projectService.deleteProject(1);
 	 	// assert
-	 	verify(projectRepository).delete(1);
+	 	verify(ideaRepository).delete(1);
 	 }
 
 }

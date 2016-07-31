@@ -1,4 +1,4 @@
-package com.dlizarra.ideahub.project;
+package com.dlizarra.ideahub.idea;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,14 +22,14 @@ import lombok.ToString;
 @Getter
 @JsonPropertyOrder({ "id", "members", "creator" })
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class ProjectDto {
+public class IdeaDto {
 
 	private Integer id;
 
-	@Size(max = Project.MAX_LENGTH_NAME)
+	@Size(max = Idea.MAX_LENGTH_NAME)
 	private String name;
 
-	@Size(max = Project.MAX_LENGTH_DESCRIPTION)
+	@Size(max = Idea.MAX_LENGTH_DESCRIPTION)
 	private String description;
 
 	private UserDto creator;

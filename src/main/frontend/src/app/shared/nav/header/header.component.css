@@ -1,0 +1,32 @@
+nav {
+    background: #297373 url(/assets/bg.png);
+}
+
+.navbar-brand {
+    margin-right: 4rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,0.75);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav .nav-link:active {
+    color: #ffffff;
+}
+
+.dropdown-menu, .dropdown-item{
+    background-color: #297373;
+    color: rgba(255,255,255,0.75);
+}
+
+.dropdown-item:hover, .dropdown-item:active{
+    background-color: rgba(255,255,255,0.25);
+}
+
+.dropdown-menu .dropdown-item:hover {
+    color: #ffffff;
+}
