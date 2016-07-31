@@ -1,12 +1,22 @@
 language: java
 jdk:
-- oraclejdk8
+  - oraclejdk8
+# Skip default mvn install run by Travis
+install: true
+# Install dependencies, build the jar and run tests in quiet mode to
+# avoid Travis CI 4MB log size limit
+script: mvn clean install -q -Dmaven.test.redirectTestOutputToFile=true -B -V
 notifications:
   email:
     on_success: never
     on_failure: always
 after_success:
+  # Run cobertura analysis and send report to Coveralls
   - mvn clean cobertura:cobertura coveralls:report
+cache:
+  # Cache maven dependencies to speed up the build
+  directories:
+  - $HOME/.m2
 deploy:
   provider: heroku
   api_key: "60dffffb-8734-4e21-aef0-3db3f0ace717"
