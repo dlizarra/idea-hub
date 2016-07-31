@@ -10,9 +10,6 @@ notifications:
   email:
     on_success: never
     on_failure: always
-after_success:
-  # Run cobertura analysis and send report to Coveralls
-  - mvn clean cobertura:cobertura coveralls:report
 cache:
   # Cache maven dependencies to speed up the build
   directories:
