@@ -3,3 +3,7 @@ body {
     background-image: url(/assets/bg.png);
     color: #354a57;
 }
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
