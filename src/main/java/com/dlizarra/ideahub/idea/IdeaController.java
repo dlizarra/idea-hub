@@ -27,30 +27,30 @@ public class IdeaController {
 	private static final Logger log = LoggerFactory.getLogger(AspectLogger.class);
 
 
-	@RequestMapping(value = "/projects", method = RequestMethod.GET)
+	@RequestMapping(value = "/ideas", method = RequestMethod.GET)
 	public List<IdeaDto> findAll() {
-		return ideaService.getProjects();
+		return ideaService.getIdeas();
 	}
 
-	@RequestMapping(value = "/projects/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/ideas/{id}", method = RequestMethod.GET)
 	public IdeaDto find(@PathVariable("id") int id) {
-		return ideaService.getProject(id);
+		return ideaService.getIdea(id);
 	}
 
-	@RequestMapping(value = "/projects", method = RequestMethod.POST)
+	@RequestMapping(value = "/ideas", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void create(@Valid @RequestBody final IdeaDto project) {
-		ideaService.createProject(project, 1);
+	public void create(@Valid @RequestBody final IdeaDto ideaDto) {
+		ideaService.createIdea(ideaDto, 1);
 	}
 
 	@RequestMapping(value = "/addMember", method = RequestMethod.PUT)
-	public void addMember(@Valid @RequestBody final IdeaDto project) {
-		ideaService.addMember(project.getId(), 1);
+	public void addMember(@Valid @RequestBody final IdeaDto ideaDto) {
+		ideaService.addFollower(ideaDto.getId(), 1);
 	}
 
-	@RequestMapping(value = "/projects/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable final Integer id, @Valid @RequestBody final IdeaDto project) {
-		ideaService.updateProject(project);
+	@RequestMapping(value = "/ideas/{id}", method = RequestMethod.PUT)
+	public void update(@PathVariable final Integer id, @Valid @RequestBody final IdeaDto ideaDto) {
+		ideaService.updateIdea(ideaDto);
 	}
 
 }

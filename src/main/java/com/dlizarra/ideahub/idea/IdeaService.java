@@ -4,16 +4,16 @@ import java.util.List;
 
 public interface IdeaService {
 
-	IdeaDto createProject(IdeaDto dto, Integer creatorId);
+	IdeaDto createIdea(IdeaDto dto, Integer creatorId);
 
-	void updateProject(IdeaDto project);
+	void updateIdea(IdeaDto ideaDto);
 
-	void deleteProject(Integer id);
+	void deleteIdea(Integer id);
 
-	IdeaDto getProject(Integer id);
+	IdeaDto getIdea(Integer id);
 
-	List<IdeaDto> getProjects();
+	List<IdeaDto> getIdeas();
 
-	void addMember(Integer projectId, Integer userId);
+	void addFollower(Integer projectId, Integer userId);
 
 }

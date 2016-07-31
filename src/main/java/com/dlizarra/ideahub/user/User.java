@@ -55,8 +55,8 @@ public class User {
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Role> roles = new HashSet<Role>();
 
-	@ManyToMany(mappedBy = "members", fetch = FetchType.EAGER)
-	private Set<Idea> ideas = new HashSet<Idea>();
+	@ManyToMany(mappedBy = "followers", fetch = FetchType.EAGER)
+	private Set<Idea> ideasFollowed = new HashSet<Idea>();
 
 	public User() {
 	}
@@ -86,8 +86,8 @@ public class User {
 
 	@PreRemove
 	private void preRemove() {
-		for (final Idea p : ideas) {
-			p.getMembers().remove(this);
+		for (final Idea p : ideasFollowed) {
+			p.getFollowers().remove(this);
 		}
 	}
 

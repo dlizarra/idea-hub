@@ -27,14 +27,14 @@ public class IdeaServiceImpl implements IdeaService {
 
 	@Transactional
 	@Override
-	public IdeaDto createProject(final IdeaDto dto, final Integer creatorId) {
+	public IdeaDto createIdea(final IdeaDto dto, final Integer creatorId) {
 		final Idea idea = mapper.map(dto, Idea.class);
 		final User creator = userRepository.findOne(creatorId)
 				.orElseThrow(() -> new UserNotFoundException(creatorId));
 
 		// we keep in sync both sides of the relationship idea-user
-		creator.getIdeas().add(idea);
-		idea.getMembers().add(creator);
+		creator.getIdeasFollowed().add(idea);
+		idea.getFollowers().add(creator);
 		idea.setCreator(creator);
 		final Idea saved = ideaRepository.save(idea);
 
@@ -43,33 +43,33 @@ public class IdeaServiceImpl implements IdeaService {
 
 	@Transactional
 	@Override
-	public void addMember(final Integer projectId, final Integer memberId) {
+	public void addFollower(final Integer projectId, final Integer followerId) {
 		final Idea idea = find(projectId);
-		final User user = userRepository.findOne(memberId)
-				.orElseThrow(() -> new UserNotFoundException(memberId));
+		final User user = userRepository.findOne(followerId)
+				.orElseThrow(() -> new UserNotFoundException(followerId));
 
 		// we keep in sync both sides of the relationship idea-user
-		user.getIdeas().add(idea);
+		user.getIdeasFollowed().add(idea);
 		mapper.map(user, UserDto.class);
-		idea.getMembers().add(user);
+		idea.getFollowers().add(user);
 	}
 
 	@Transactional
 	@Override
-	public void updateProject(final IdeaDto project) {
+	public void updateIdea(final IdeaDto ideaDto) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Transactional
 	@Override
-	public void deleteProject(final Integer id) {
+	public void deleteIdea(final Integer id) {
 		ideaRepository.delete(id);
 	}
 
 	@Transactional(readOnly = true)
 	@Override
-	public List<IdeaDto> getProjects() {
+	public List<IdeaDto> getIdeas() {
 		final List<IdeaDto> projectsDto = new ArrayList<IdeaDto>();
 		final List<Idea> ideas = ideaRepository.findAll(new Sort("id"));
 		ideas.forEach(x -> projectsDto.add(mapper.map(x, IdeaDto.class)));
@@ -79,7 +79,7 @@ public class IdeaServiceImpl implements IdeaService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public IdeaDto getProject(final Integer id) {
+	public IdeaDto getIdea(final Integer id) {
 		return mapper.map(find(id), IdeaDto.class);
 	}
 

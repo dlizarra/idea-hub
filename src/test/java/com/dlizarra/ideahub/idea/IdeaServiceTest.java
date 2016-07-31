@@ -66,7 +66,7 @@ public class IdeaServiceTest extends AbstractUnitTest {
 	@Test
 	public void testGetProjects_TwoProjectsInDb_ShouldReturnTwoProjects() {
 		// act
-		final List<IdeaDto> projects = projectService.getProjects();
+		final List<IdeaDto> projects = projectService.getIdeas();
 		// assert
 		assertThat(projects.size()).isEqualTo(2);
 
@@ -75,14 +75,14 @@ public class IdeaServiceTest extends AbstractUnitTest {
 	@Test
 	public void testGetProject_ExistingIdGiven_ShouldReturnProject() {
 		// act
-		final IdeaDto p = projectService.getProject(1);
+		final IdeaDto p = projectService.getIdea(1);
 		// assert
 		assertThat(p.getName()).isEqualTo("Project1");
 	}
 
 	@Test(expected = IdeaNotFoundException.class)
 	public void testGetProject_NonExistingIdGiven_ShouldThrowProjectNotFoundException() {
-		projectService.getProject(5);
+		projectService.getIdea(5);
 	}
 
 	@Test
@@ -92,7 +92,7 @@ public class IdeaServiceTest extends AbstractUnitTest {
 		savedDto.setName("Project1");
 		savedDto.setDescription("Description for Project1");
 		// act
-		final IdeaDto dto = projectService.createProject(savedDto, 1);
+		final IdeaDto dto = projectService.createIdea(savedDto, 1);
 		// assert
 		assertThat(dto.getId()).isEqualTo(1);
 	}
@@ -100,7 +100,7 @@ public class IdeaServiceTest extends AbstractUnitTest {
 	 @Test
 	 public void testDeleteProject_ValidIdGiven_ShouldDeleteProject(){
 	 	// act
-	 	projectService.deleteProject(1);
+	 	projectService.deleteIdea(1);
 	 	// assert
 	 	verify(ideaRepository).delete(1);
 	 }

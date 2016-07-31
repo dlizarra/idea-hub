@@ -33,7 +33,7 @@ public class IdeaDto {
 	private String description;
 
 	private UserDto creator;
-	private List<UserDto> members = new ArrayList<UserDto>();
+	private List<UserDto> followers = new ArrayList<UserDto>();
 	private LocalDateTime creationTime;
 	private LocalDateTime modificationTime;
 

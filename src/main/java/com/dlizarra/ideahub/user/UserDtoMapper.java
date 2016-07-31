@@ -8,16 +8,16 @@ import ma.glasnost.orika.CustomMapper;
 public class UserDtoMapper extends CustomMapper<User, UserDto> {
 	// @Override
 	// public void mapAtoB(final User user, final UserDto userDto, final MappingContext context) {
-	// userDto.getIdeas().forEach(p -> {
+	// userDto.getIdeasFollowed().forEach(p -> {
 	// if (p.getCreator() != null) {
-	// p.getCreator().setIdeas(new ArrayList<IdeaDto>());
+	// p.getCreator().setIdeasFollowed(new ArrayList<IdeaDto>());
 	// }
 	// p.setMembers(new ArrayList<UserDto>());
 	// });
 
-	// userDto.getIdeas().forEach(p -> {
+	// userDto.getIdeasFollowed().forEach(p -> {
 	// if (p.getCreator() != null) {
-	// p.getCreator().setIdeas(new ArrayList<IdeaDto>());
+	// p.getCreator().setIdeasFollowed(new ArrayList<IdeaDto>());
 	// }
 	// p.setMembers(new ArrayList<UserDto>());
 	// });

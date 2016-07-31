@@ -26,7 +26,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable("id") final Integer id, @Valid @RequestBody final UserDto project) {
+	public void update(@PathVariable("id") final Integer id, @Valid @RequestBody final UserDto userDto) {
 
 	}
 

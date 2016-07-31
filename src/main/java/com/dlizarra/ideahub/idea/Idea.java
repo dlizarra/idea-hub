@@ -56,9 +56,9 @@ public class Idea {
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "idea2users",
-				joinColumns = {	@JoinColumn(name = "idea_id", referencedColumnName = "id") }, inverseJoinColumns = {
-								@JoinColumn(name = "user_id", referencedColumnName = "id") })
-	private Set<User> members = new HashSet<User>();
+			joinColumns = {	@JoinColumn(name = "idea_id", referencedColumnName = "id") },
+			inverseJoinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") })
+	private Set<User> followers = new HashSet<User>();
 
 	private LocalDateTime creationTime;
 	private LocalDateTime modificationTime;
