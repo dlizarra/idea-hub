@@ -5,11 +5,14 @@ jdk:
 install: true
 # Install dependencies, build the jar and run tests in quiet mode to
 # avoid Travis CI 4MB log size limit
-script: mvn clean install -q -Dmaven.test.redirectTestOutputToFile=true -B -V
+script: mvn -q clean install -Dmaven.test.redirectTestOutputToFile=true -B -V
 notifications:
   email:
     on_success: never
     on_failure: always
+after_success:
+  # Run cobertura analysis and send report to Coveralls
+  - mvn cobertura:cobertura coveralls:report -Dmaven.test.redirectTestOutputToFile=true
 cache:
   # Cache maven dependencies to speed up the build
   directories:
