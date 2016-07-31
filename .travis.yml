@@ -4,7 +4,7 @@ jdk:
 # Skip default mvn install run by Travis
 install: true
 # Install dependencies, build the jar and run tests in quiet mode to
-# avoid Travis CI 4MB log size limit
+# avoid Travis CI 4MB log size limit.
 script: mvn -q clean install -Dmaven.test.redirectTestOutputToFile=true -B -V
 notifications:
   email:
