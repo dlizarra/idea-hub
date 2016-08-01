@@ -1,5 +1,5 @@
 nav {
-    background: #297373 url(/assets/bg.png);
+    background: #297373 url(/assets/img/bg.png);
 }
 
 .navbar-brand {
@@ -59,4 +59,8 @@ nav {
     background-color: #953a38;
     border-color: #953a38;
     color: #dad9d4;
+}
+
+.navbar-brand > img {
+    height: 32px;
 }
