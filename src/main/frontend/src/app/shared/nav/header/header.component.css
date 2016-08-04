@@ -19,7 +19,7 @@ nav {
 }
 
 .dropdown-menu, .dropdown-item{
-    background-color: #297373;
+    background-color: #3f5767;
     color: rgba(255,255,255,0.75);
 }
 
@@ -45,6 +45,10 @@ nav {
     }
 }
 
+.btn {
+    transition: all 0.1s linear;
+}
+
 .btn-round {
     border-radius: 24px;
 }
@@ -52,13 +56,13 @@ nav {
 .btn-danger {
     background-color: #b94947;
     border-color: #b94947;
-    color: #dad9d4;
+    color: #fffdfa;
 }
 
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active {
     background-color: #953a38;
     border-color: #953a38;
-    color: #dad9d4;
+    color: #fffdfa;
 }
 
 .navbar-brand > img {
