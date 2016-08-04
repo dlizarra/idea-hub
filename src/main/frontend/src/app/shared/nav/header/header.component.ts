@@ -1,12 +1,13 @@
 import {Component} from "@angular/core";
-import {SearchBoxComponent} from "../search-box/search-box.component";
+import {ROUTER_DIRECTIVES} from "@angular/router";
+
 
 @Component({
   moduleId: module.id,
   selector: 'dl-header',
   templateUrl: 'header.component.html',
   styleUrls: ['header.component.css'],
-  directives: [SearchBoxComponent]
+  directives: [ROUTER_DIRECTIVES]
 })
 export class HeaderComponent {
 
