@@ -30,6 +30,7 @@
         <node.version>v5.7.0</node.version>
         <npm.version>3.7.1</npm.version>
         <guava.version>19.0</guava.version>
+        <jackson-datatype-jsr310.version>2.8.1</jackson-datatype-jsr310.version>
     </properties>
 
     <dependencies>
@@ -105,6 +106,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-datatype-jsr310.version}</version>
         </dependency>
     </dependencies>
     <build>
