@@ -1,23 +1,23 @@
 <nav class="navbar navbar-full navbar-dark" role="navigation">
   <div class="container">
     <div class="nav navbar-nav">
-      <a class="navbar-brand" href="/"><img src="/assets/img/logo.png"></a>
+      <a class="navbar-brand" [routerLink]="['']"><img src="/assets/img/logo.png"></a>
       <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#collapsibleContent">
         ☰
       </button>
       <div class="collapse navbar-toggleable-xs" id="collapsibleContent">
         <ul class="nav navbar-nav">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-lightbulb-o"></i>&nbsp;Ideas
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Browse</a>
-              <a class="dropdown-item" href="#">Create</a>
+              <a [routerLink]="['/ideas']" class="dropdown-item">Browse</a>
+              <a [routerLink]="['/ideas']" class="dropdown-item">Create</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link">
               <i class="fa fa-user"></i>&nbsp;Users
             </a>
           </li>
