@@ -1,3 +1,5 @@
-<p>
-  idea-list works!
-</p>
+<div class="idea-list-container">
+  <div class="row">
+      <dl-idea-list-item *ngFor="let idea of ideaList" [idea]="idea"></dl-idea-list-item>
+  </div>
+</div>
