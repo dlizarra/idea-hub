@@ -7,6 +7,9 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'moment': {
+    format: 'cjs'
+  },
 };
 
 /** User packages configuration. */
@@ -37,8 +40,11 @@ const barrels: string[] = [
   'app/shared/nav',
   'app/shared/nav/header',
   'app/ideas',
+  'app/ideas/shared',
   'app/ideas/idea-list',
-
+  'app/ideas/idea-list-item',
+  'app/users',
+  'app/users/shared'
   /** @cli-barrel */
 ];
 
@@ -55,7 +61,8 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
-    'main': 'main.js'
+    'main': 'main.js',
+    'moment': 'vendor/moment/moment.js'
   },
   packages: cliSystemConfigPackages
 });
