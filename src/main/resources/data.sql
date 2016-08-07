@@ -6,35 +6,40 @@ INSERT INTO "users"("id","username", "password", "enabled") VALUES (4, 'ryan', '
 INSERT INTO "users"("id","username", "password", "enabled") VALUES (5, 'martin', '$2a$10$ACRP9z0Ya//Nbym3oQj9Keq4NNXwoq.oyCnUlx1819RvlzLcqDTJq/uExeP1TMa6wG21zwll3Yp9DUC', 1);
 
 -- idea
-INSERT INTO "idea"("id","name", "description", "creator_id") VALUES (
+INSERT INTO "idea"("id","name", "description", "creator_id", "creation_time") VALUES (
   1,
   'Home Medical Analysis System',
   'Description for Project 1',
-  1
+  1,
+  '2016-07-21'
 );
-INSERT INTO "idea"("id","name", "description", "creator_id") VALUES (
+INSERT INTO "idea"("id","name", "description", "creator_id", "creation_time") VALUES (
   2,
-  'Experimental helping bot',
+  'Experimental helping bots',
   'Description for Project 2',
-  2
+  2,
+  '2016-07-22'
 );
-INSERT INTO "idea"("id","name", "description", "creator_id") VALUES (
+INSERT INTO "idea"("id","name", "description", "creator_id", "creation_time") VALUES (
   3,
   'Instant personalized TV news reports',
   'Description for Project 3',
-  3
+  3,
+  '2016-07-23'
 );
-INSERT INTO "idea"("id","name", "description", "creator_id") VALUES (
+INSERT INTO "idea"("id","name", "description", "creator_id", "creation_time") VALUES (
   4,
   'CouchSurfing mobile app',
   'Description for Project 4',
-  4
+  4,
+  '2016-07-22'
 );
-INSERT INTO "idea"("id","name", "description", "creator_id") VALUES (
+INSERT INTO "idea"("id","name", "description", "creator_id", "creation_time") VALUES (
   5,
   'Real time kids tracking',
   'Description for Project 5',
-  5
+  5,
+  '2016-07-22'
 );
 
 -- role
