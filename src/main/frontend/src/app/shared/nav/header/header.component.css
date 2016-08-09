@@ -45,26 +45,6 @@ nav {
     }
 }
 
-.btn {
-    transition: all 0.1s linear;
-}
-
-.btn-round {
-    border-radius: 24px;
-}
-
-.btn-danger {
-    background-color: #b94947;
-    border-color: #b94947;
-    color: #fffdfa;
-}
-
-.btn-danger:hover, .btn-danger:focus, .btn-danger:active {
-    background-color: #953a38;
-    border-color: #953a38;
-    color: #fffdfa;
-}
-
 .navbar-brand > img {
     height: 32px;
 }

@@ -11,5 +11,4 @@ export class Idea {
     this.description = description;
     this.creator = creator;
   }
-
 }

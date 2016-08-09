@@ -1,9 +1,51 @@
+/*************
+*   GLOBAL   *
+**************/
 body {
     background-color: #fefdf8;
-    background-image: url(/assets/img/bg.png);
+    background-image: url(assets/img/bg.png);
     color: #354a57;
 }
 
-.btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
+/*************
+*   BUTTONS  *
+**************/
+.btn {
+    transition: all 0.1s linear;
+    color: #fffdfa;
+}
+
+.btn-round {
+    border-radius: 24px;
+}
+
+.btn-danger {
+    background-color: #b94947;
+    border-color: #b94947;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active {
+    background-color: #953a38;
+    border-color: #953a38;
+}
+
+.btn-success {
+    background-color: #5f9744;
+    border-color: #5f9744;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active {
+    background-color: #346934;
+    border-color: #346934;
+}
+
+/************
+*   FORMS   *
+*************/
+.ng-valid[required] {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid {
+    border-left: 5px solid #a94442;
 }
