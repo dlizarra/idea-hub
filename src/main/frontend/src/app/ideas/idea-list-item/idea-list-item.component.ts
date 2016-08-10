@@ -1,5 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {Idea} from "../shared";
+import { Component, OnInit, Input } from '@angular/core';
+import { Idea } from "../shared";
 
 @Component({
   moduleId: module.id,

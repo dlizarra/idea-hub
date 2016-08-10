@@ -1,13 +1,10 @@
-import {Component} from "@angular/core";
-import {Idea} from "../shared/idea.model";
-import {ROUTER_DIRECTIVES} from "@angular/router";
+import { Component } from "@angular/core";
 
 @Component({
   moduleId: module.id,
   selector: 'dl-idea-form',
   templateUrl: 'idea-form.component.html',
-  styleUrls: ['idea-form.component.css'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['idea-form.component.css']
 })
 export class IdeaFormComponent {
 

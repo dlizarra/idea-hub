@@ -1,0 +1,32 @@
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpModule } from "@angular/http";
+import { FormsModule } from '@angular/forms';
+import { AppComponent } from "./app.component";
+import { IdeaService } from "./ideas/shared/idea.service";
+import { HeaderComponent } from "./shared/nav/header/header.component";
+import { IdeaFormComponent } from "./ideas/idea-form/idea-form.component";
+import { IdeaListComponent } from "./ideas/idea-list/idea-list.component";
+import { IdeaListItemComponent } from "./ideas/idea-list-item/idea-list-item.component";
+import { routing } from "./app.routing";
+
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    HttpModule,
+    FormsModule,
+    routing
+  ],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    IdeaFormComponent,
+    IdeaListComponent,
+    IdeaListItemComponent
+  ],
+  bootstrap: [AppComponent],
+  providers: [IdeaService]
+})
+export class AppModule {
+}
