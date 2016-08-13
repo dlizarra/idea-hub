@@ -10,6 +10,9 @@ const map: any = {
   'moment': {
     format: 'cjs'
   },
+  'ng2-popover': {
+    format: 'cjs'
+  }
 };
 
 /** User packages configuration. */
@@ -33,6 +36,7 @@ const barrels: string[] = [
 
   // Thirdparty barrels.
   'rxjs',
+  'ng2-popover',
 
   // App specific barrels.
   'app',
@@ -46,6 +50,7 @@ const barrels: string[] = [
   'app/users',
   'app/users/shared',
   'app/ideas/idea-form',
+  'app/users/login',
   /** @cli-barrel */
 ];
 
@@ -63,7 +68,8 @@ System.config({
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
     'main': 'main.js',
-    'moment': 'vendor/moment/moment.js'
+    'moment': 'vendor/moment/moment.js',
+    'ng2-popover': 'vendor/ng2-popover'
   },
   packages: cliSystemConfigPackages
 });

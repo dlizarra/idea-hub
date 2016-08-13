@@ -48,3 +48,7 @@ nav {
 .navbar-brand > img {
     height: 32px;
 }
+
+a.nav-link {
+    cursor: pointer;
+}

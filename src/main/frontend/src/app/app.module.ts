@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { IdeaService } from "./ideas/shared/idea.service";
 import { HeaderComponent } from "./shared/nav/header/header.component";
@@ -9,6 +9,9 @@ import { IdeaFormComponent } from "./ideas/idea-form/idea-form.component";
 import { IdeaListComponent } from "./ideas/idea-list/idea-list.component";
 import { IdeaListItemComponent } from "./ideas/idea-list-item/idea-list-item.component";
 import { routing } from "./app.routing";
+import { POPOVER_DIRECTIVES } from "ng2-popover";
+import { LoginComponent } from "./users/login";
+import { AuthService } from "./shared/auth.service";
 
 
 @NgModule({
@@ -23,10 +26,15 @@ import { routing } from "./app.routing";
     HeaderComponent,
     IdeaFormComponent,
     IdeaListComponent,
-    IdeaListItemComponent
+    IdeaListItemComponent,
+    LoginComponent,
+    POPOVER_DIRECTIVES
   ],
   bootstrap: [AppComponent],
-  providers: [IdeaService]
+  providers: [
+    AuthService,
+    IdeaService
+  ]
 })
 export class AppModule {
 }

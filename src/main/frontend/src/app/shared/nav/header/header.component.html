@@ -21,11 +21,25 @@
               <i class="fa fa-user"></i>&nbsp;Users
             </a>
           </li>
-          <li class="nav-item pull-sm-right">
-            <a class="nav-link" href="#">
-              <i class="fa fa-sign-in"></i>&nbsp;Login
+          <li *ngIf="!authService.isAuthenticated" class="nav-item pull-sm-right">
+            <a [popover]="loginPopover" class="nav-link">
+              <i class="fa fa-sign-in"></i>&nbsp;Log in
             </a>
           </li>
+          <li *ngIf="authService.isAuthenticated" class="nav-item pull-sm-right">
+            <a [popover]="loginPopover" class="nav-link">
+              <i class="fa fa-sign-out"></i>&nbsp;Log out
+            </a>
+          </li>
+
+          <popover-content #loginPopover
+                           title="Log in"
+                           placement="bottom"
+                           [animation]="true"
+                           [closeOnClickOutside]="true" >
+          <dl-login></dl-login>
+          </popover-content>
+
           <li class="nav-item pull-sm-right">
             <button class="btn btn-danger btn-round">Create an account</button>
           </li>
