@@ -72,6 +72,7 @@ public class User {
 		this.username = user.username;
 		this.password = user.password;
 		this.enabled = user.enabled;
+		this.roles = user.getRoles();
 	}
 
 	@PrePersist

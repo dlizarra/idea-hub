@@ -29,6 +29,7 @@
         <npm.version>3.10.6</npm.version>
         <guava.version>19.0</guava.version>
         <jackson-datatype-jsr310.version>2.8.1</jackson-datatype-jsr310.version>
+        <jjwt.version>0.4</jjwt.version>
     </properties>
 
     <dependencies>
@@ -102,6 +103,15 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-datatype-jsr310.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.mobile</groupId>
+            <artifactId>spring-mobile-device</artifactId>
         </dependency>
     </dependencies>
     <build>

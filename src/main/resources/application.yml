@@ -2,3 +2,9 @@ spring:
   jackson:
     serialization:
       write_dates_as_timestamps: false
+
+jwt:
+  header: X-Auth-Token
+  secret: sssshhhh!
+  expiration: 604800
+
