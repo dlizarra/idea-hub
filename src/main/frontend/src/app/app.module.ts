@@ -13,7 +13,7 @@ import { POPOVER_DIRECTIVES } from "ng2-popover";
 import { LoginComponent } from "./users/login";
 import { AuthService } from "./shared/auth.service";
 import { NewUserComponent } from "./users/new-user/new-user.component";
-import { MODAL_DIRECTIVES } from "ng2-bs3-modal/ng2-bs3-modal";
+import { Ng2Bs3ModalModule } from "ng2-bs3-modal/ng2-bs3-modal";
 
 
 
@@ -22,7 +22,8 @@ import { MODAL_DIRECTIVES } from "ng2-bs3-modal/ng2-bs3-modal";
     BrowserModule,
     HttpModule,
     FormsModule,
-    routing
+    routing,
+    Ng2Bs3ModalModule
   ],
   declarations: [
     AppComponent,
@@ -32,9 +33,7 @@ import { MODAL_DIRECTIVES } from "ng2-bs3-modal/ng2-bs3-modal";
     IdeaListItemComponent,
     LoginComponent,
     NewUserComponent,
-    POPOVER_DIRECTIVES,
-    MODAL_DIRECTIVES
-
+    POPOVER_DIRECTIVES
   ],
   bootstrap: [AppComponent],
   providers: [
