@@ -12,6 +12,9 @@ const map: any = {
   },
   'ng2-popover': {
     format: 'cjs'
+  },
+  'ng2-bs3-modal': {
+    format: 'cjs'
   }
 };
 
@@ -37,6 +40,7 @@ const barrels: string[] = [
   // Thirdparty barrels.
   'rxjs',
   'ng2-popover',
+  'ng2-bs3-modal',
 
   // App specific barrels.
   'app',
@@ -47,10 +51,11 @@ const barrels: string[] = [
   'app/ideas/shared',
   'app/ideas/idea-list',
   'app/ideas/idea-list-item',
+  'app/ideas/idea-form',
   'app/users',
   'app/users/shared',
-  'app/ideas/idea-form',
   'app/users/login',
+  'app/users/new-user',
   /** @cli-barrel */
 ];
 
@@ -69,7 +74,8 @@ System.config({
     'rxjs': 'vendor/rxjs',
     'main': 'main.js',
     'moment': 'vendor/moment/moment.js',
-    'ng2-popover': 'vendor/ng2-popover'
+    'ng2-popover': 'vendor/ng2-popover',
+    'ng2-bs3-modal': 'vendor/ng2-bs3-modal'
   },
   packages: cliSystemConfigPackages
 });

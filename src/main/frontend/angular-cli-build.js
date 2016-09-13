@@ -17,7 +17,8 @@ module.exports = function(defaults) {
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
       'moment/moment.js',
-      'ng2-popover//**/*.+(js|js.map)'
+      'ng2-popover//**/*.+(js|js.map)',
+      'ng2-bs3-modal//**/*.+(js|js.map)'
     ]
   });
 };

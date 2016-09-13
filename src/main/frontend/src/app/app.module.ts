@@ -12,6 +12,9 @@ import { routing } from "./app.routing";
 import { POPOVER_DIRECTIVES } from "ng2-popover";
 import { LoginComponent } from "./users/login";
 import { AuthService } from "./shared/auth.service";
+import { NewUserComponent } from "./users/new-user/new-user.component";
+import { MODAL_DIRECTIVES } from "ng2-bs3-modal/ng2-bs3-modal";
+
 
 
 @NgModule({
@@ -28,12 +31,15 @@ import { AuthService } from "./shared/auth.service";
     IdeaListComponent,
     IdeaListItemComponent,
     LoginComponent,
-    POPOVER_DIRECTIVES
+    NewUserComponent,
+    POPOVER_DIRECTIVES,
+    MODAL_DIRECTIVES
+
   ],
   bootstrap: [AppComponent],
   providers: [
     AuthService,
-    IdeaService
+    IdeaService,
   ]
 })
 export class AppModule {

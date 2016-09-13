@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
-import { POPOVER_DIRECTIVES } from "ng2-popover";
+import { Component, ViewChild } from "@angular/core";
 import { AuthService } from "../../auth.service";
+import { MODAL_DIRECTIVES } from "ng2-bs3-modal/ng2-bs3-modal";
+
 
 
 @Component({
@@ -8,9 +9,10 @@ import { AuthService } from "../../auth.service";
   selector: 'dl-header',
   templateUrl: 'header.component.html',
   styleUrls: ['header.component.css'],
-  directives: [POPOVER_DIRECTIVES]
+
 })
 export class HeaderComponent {
+
 
   constructor(private authService: AuthService) {
   }
